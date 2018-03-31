@@ -159,7 +159,7 @@ if binExists pip ; then
     if [ "`pip list --outdated --format=legacy`" == "" ] ; then
         echo 'Nothing to update...'
     else
-        pip install -U `pip list --outdated | awk '!/Could not|ignored/ { print $1}'`
+        pip install -U `pip list --outdated --format=legacy | awk '!/Could not|ignored/ { print $1}'`
         printf "\n\n"
     fi
 fi
